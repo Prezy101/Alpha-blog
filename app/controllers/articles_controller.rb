@@ -58,7 +58,7 @@ def destroy
   @article = Article.find(params[:id])
   @article.destroy
   flash[:notice] = 'Article successfully deleted'
-  redirect_to articles_path(@article)
+  redirect_to articles_path
 
 end
 

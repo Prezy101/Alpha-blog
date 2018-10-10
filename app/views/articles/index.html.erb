@@ -14,11 +14,11 @@
 
     <tr>
       <% @article.each do |art| %>
-          <td><%= link_to art.id, edit_article_url(art.id) %></td>
+          <td><%= link_to art.id, edit_article_url(art) %></td>
           <td><%= art.title %></td>
           <td><%= art.description %></td>
           <td><%= art.created_at %></td>
-          <td><%= link_to 'show', article_path(art.id) %></td>
+          <td><%= link_to 'show', article_path(art) %></td>
 
           </tr>
 
@@ -26,6 +26,6 @@
 
   </table>
   <br/>
-  <%= link_to 'Create new article', new_article_url, :method => 'get' %>
+  <%= link_to 'Create new article', new_article_url %>
 
 </center>

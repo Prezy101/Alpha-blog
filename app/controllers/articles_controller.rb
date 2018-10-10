@@ -53,6 +53,7 @@ def show
 
 end
 
+
 private
 
 def article_params

@@ -1,29 +1,19 @@
-
-<% if @article.errors.any? %>
-    <ul>
-      <% @article.errors.full_messages.each do |msg| %>
-          <li style="color: #B00100"><%= msg %></li>
+  <%= render 'layouts/errors', obj:@article %>
+    <div class="well">
+      <%= form_for @article do  |f| %>
+        <p>
+          <%= f.label :title %><br/>
+          <%= f.text_field :title, :class =>'form-control', :style =>'width: 50%;', :autofocus=>'true', :placeholder=>'Title' %>
+        </p>
+        <p>
+          <%= f.label :description %><br/>
+          <%= f.text_area :description, :class =>'form-control', :style =>'width: 50%; height: 150px;', :placeholder=>'Description' %>
+        </p>
+        <p>
+          <%= f.submit :class => 'btn btn-primary' %>
+        </p>
       <% end %>
-    </ul>
-<% end %>
 
-<div class="well">
-
-<%= form_for @article do  |f|   %>
-
-    <p>
-      <%= f.label :title %><br/>
-      <%= f.text_field :title, :class =>'form-control', :style =>'width: 50%;', :autofocus=>'true' %>
-    </p>
-    <p>
-      <%= f.label :description %><br/>
-      <%= f.text_area :description, :class =>'form-control', :style =>'width: 50%; height: 150px;' %>
-    </p>
-    <p>
-      <%= f.submit :class => 'btn btn-primary' %>
-    </p>
-<% end %>
-
-<br/>
-<%= link_to 'Articles', articles_path %>
-</div>
+      <br/>
+      <%= link_to 'Articles', articles_path %>
+    </div>

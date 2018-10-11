@@ -1,2 +1,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#logo{
+  color: #EFEFEF;
+  float: left;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+#logo:hover{
+  color: #EFEFEF;
+  text-decoration: none;
+}
+

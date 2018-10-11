@@ -1,33 +1,35 @@
 <center><h1>Listing all articles</h1>
 
+  <% if @article.count > 0 %>
+      <table style="width: 50%;">
 
-  <table style="width: 50%;">
+        <tr>
+          <th>Edit</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Created</th>
+          <th>Show</th>
+          <th>Delete</th>
 
-    <tr>
-      <th>Edit</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Created</th>
-      <th>Show</th>
-      <th>Delete</th>
+        </tr>
 
-    </tr>
+        <tr>
+          <% @article.each do |art| %>
+              <td><%= link_to art.id, edit_article_url(art) %></td>
+              <td><%= art.title %></td>
+              <td><%= art.description %></td>
+              <td><%= art.created_at %></td>
+              <td><%= link_to 'show', article_path(art) %></td>
+              <td><%= link_to 'delete', article_path(art), method: :delete, data: {confirm: 'Are you sure?'} %></td>
 
-    <tr>
-      <% @article.each do |art| %>
-          <td><%= link_to art.id, edit_article_url(art) %></td>
-          <td><%= art.title %></td>
-          <td><%= art.description %></td>
-          <td><%= art.created_at %></td>
-          <td><%= link_to 'show', article_path(art) %></td>
-          <td><%= link_to 'delete', article_path(art), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+              </tr>
 
-          </tr>
+        <% end %>
 
-    <% end %>
-
-  </table>
-  <br/>
-  <%= link_to 'Create new article', new_article_url %>
-
+      </table>
+     <br/>
+  <% else %>
+      <%= link_to 'Create new article', new_article_url %>
+      <P>You currently do not have any articles created</P>
+  <% end %>
 </center>

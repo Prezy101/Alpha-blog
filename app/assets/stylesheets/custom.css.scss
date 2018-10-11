@@ -15,3 +15,21 @@
   text-decoration: none;
 }
 
+.jumbotron{
+
+  background-image: url("Blog-Promotion.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 500px;
+
+}
+
+.jumbotron h2{
+  color: #EFEFEF;
+}
+
+.jumbotron h4{
+  color: #2E2F30;
+}

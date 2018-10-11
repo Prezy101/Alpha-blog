@@ -1,19 +1,17 @@
-<center><h1>Show page</h1>
-
-<p>
+<center><h1>Show Page</h1>
+<hr style="width: 25%"/>
+<h4>
   <%= @article.title %>
-</p>
+</h4>
+<hr style="width: 50%"/>
 
-
-<p>
+<h4>
   <%= @article.description %>
-</p>
+</h4>
 
-  <br/>
-  <%= link_to 'Articles', articles_path %>
-  <br/>
-  <br/>
-  <%= link_to 'Edit this article', edit_article_path(@article) %>
+  <hr style="width: 75%"/>
+  <%= link_to 'Articles', articles_path %>  |  <%= link_to 'Edit this article', edit_article_path(@article) %>
+  <hr/>
 
 
 </center>

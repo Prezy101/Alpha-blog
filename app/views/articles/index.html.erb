@@ -1,39 +1,50 @@
 <% if @article.count > 0 %>
+      <h1 align="center">Listing all articles</h1>
 
-    <center><h1>Listing all articles</h1>
-      <br/>
-      <br/>
-      <table style="width: 50%;" class="table-responsive table table-dark">
+      <% @article.each do |article| %>
 
-        <tr>
-          <th>Edit</th>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Created</th>
-          <th>Show</th>
-          <th>Delete</th>
+          <div class="row">
 
-        </tr>
+            <div class="col-xs-8 col-xs-offset-2">
 
-        <tr>
-          <% @article.each do |art| %>
-              <td><%= link_to art.id, edit_article_url(art) %></td>
-              <td><%= art.title %></td>
-              <td><%= art.description %></td>
-              <td><%= art.created_at %></td>
-              <td><%= link_to 'show', article_path(art) %></td>
-              <td><%= link_to 'delete', article_path(art), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+              <div class="well well-lg">
 
-              </tr>
+                <div class="article-title">
 
-        <% end %>
+                  <%= link_to article.title, article_path(article) %>
 
-      </table>
+                </div>
+
+                <div class="article-body">
+
+                  <%= truncate(article.description, length: 100) %>
+
+                </div>
+
+                <div class="article-actions">
+
+                  <%= link_to "Edit this article", edit_article_path(article), class: "btn btn-xs btn-primary" %>
+
+                  <%= link_to "Delete this article", article_path(article), method: :delete,
+
+                              data: { confirm: "Are you sure you want to delete the article?"},
+
+                              class: "btn btn-xs btn-danger" %>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+      <% end %>
      <br/>
-      <%= link_to 'Create new article', new_article_url %>
+      <%= link_to 'Create new article', new_article_url,:style =>'font-size:20px' %>
 <% else %>
     <center>
-      <%= link_to 'Create new article', new_article_url %>
+      <%= link_to 'Create new article', new_article_url,:style =>'font-size:20px' %>
       <P>You currently do not have any articles created</P>
     </center>
   <% end %>

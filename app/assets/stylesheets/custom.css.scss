@@ -17,7 +17,7 @@
 
 .jumbotron{
 
-  background-image: url("Blog-Promotion.jpg");
+  background-image: asset-url('Blog-Promotion.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

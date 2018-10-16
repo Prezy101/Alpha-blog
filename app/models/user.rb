@@ -8,3 +8,4 @@ class User < ApplicationRecord
             format: { with: VALID_EMAIL_REGEX }
 end
 
+cd t

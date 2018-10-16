@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @users = User.new(user_params)
     if @users.save
-      flash[:success] = 'Welcoem to the alpha blog'
+      flash[:success] = 'Welcome to the alpha blog'
       redirect_to articles_path
     else
       render 'users/new' # or you can say render 'new'

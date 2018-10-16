@@ -3,8 +3,10 @@
 
   <center><H2>This is the Alpha-Blog home page</H2>
       <br/>
-      <p><a class="btn btn-success btn-lg" href="#" role="button">Sign Up</a></p>
-      <br/>
+      <p><%= link_to "Sign Up", signup_path, class: "btn btn-success btn-lg" %></p>
+
+
+    <br/>
       <h3 style="color: #2E2F30"><%= link_to 'About', pages_about_path %> | <%= link_to 'Article', articles_path %> </h3>
 
   </center>

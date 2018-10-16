@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get 'welcome/home', to: 'welcome#home'
   get 'welcome/about', to: 'welcome#about'
   get 'pages/about', to: 'pages#about'
+  get 'signup', to: 'users#new'
 
   resources :articles
-
-
+  resources :users, except: [:new]
 end

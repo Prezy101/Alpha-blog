@@ -1,0 +1,13 @@
+<center>
+  <h1>Welcome to <%= @users.username %>'s page</h1>
+  <div class="row">
+    <div >
+      <%=	 gravatar_for @users, size: 150 %>
+
+    </div>
+  </div>
+  <h4><%= @users.username %>'s articles</h4>
+  <h4><%= @users.email %></h4>
+
+  <%=	 render 'articles/articles', obj: @users.articles  %>
+</center>

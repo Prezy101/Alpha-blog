@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update, :show]
 
 
   def new
@@ -20,10 +20,12 @@ class UsersController < ApplicationController
 
   def edit; end
 
+  def show; end
+
   def update
     if @users.update(user_params)
       flash[:success] = 'Profile successfully updated'
-      redirect_to articles_path(@users)
+      redirect_to articles_path
     else
       render 'users/new'
     end

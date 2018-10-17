@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:edit, :update, :show]
+  before_action :set_user, only: [:edit, :update, :show, :destroy]
+
+  def index
+    @users = User.all.order(id: :desc)
+  end
 
 
   def new
@@ -12,7 +16,7 @@ class UsersController < ApplicationController
     @users = User.new(user_params)
     if @users.save
       flash[:success] = 'Welcome to the alpha blog'
-      redirect_to articles_path
+      redirect_to users_path
     else
       render 'users/new' # or you can say render 'new'
     end
@@ -25,12 +29,17 @@ class UsersController < ApplicationController
   def update
     if @users.update(user_params)
       flash[:success] = 'Profile successfully updated'
-      redirect_to articles_path
+      redirect_to users_path
     else
       render 'users/new'
     end
   end
 
+  def destroy
+    @users.destroy
+    flash[:danger] = 'User successfully deleted'
+    redirect_to articles_path
+  end
   private
 
   def set_user

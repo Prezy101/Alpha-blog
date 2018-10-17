@@ -8,6 +8,8 @@
   </div>
   <h4><%= @users.username %>'s articles</h4>
   <h4><%= @users.email %></h4>
+  <h4>Articles <%= @users.articles.count %></h4>
+
 
   <%=	 render 'articles/articles', obj: @users.articles  %>
 </center>

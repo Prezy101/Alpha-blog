@@ -1,0 +1,25 @@
+<center>
+  <%= render 'layouts/errors', obj:@users %>
+  <div class="well">
+    <%= form_for @users do  |f| %>
+        <p>
+          <%= f.label :username %><br/>
+          <%= f.text_field :username, :class =>'form-control', :style =>'width: 50%;', :autofocus=>'true', :placeholder=>'Enter username' %>
+        </p>
+        <p>
+          <%= f.label :email %><br/>
+          <%= f.email_field :email, :class =>'form-control', :style =>'width: 50%;', :placeholder=>'Enter email' %>
+        </p>
+        <p>
+          <%= f.label :password %><br/>
+          <%= f.password_field :password, :class =>'form-control', :style =>'width: 50%;', :placeholder=>'Enter password' %>
+        </p>
+        <p>
+          <%= f.submit(@users.new_record? ? "Sign up" : "Update account",:class => 'btn btn-primary') %>
+        </p>
+    <% end %>
+
+    <br/>
+    <%= link_to 'Articles', articles_path %>
+  </div>
+</center>

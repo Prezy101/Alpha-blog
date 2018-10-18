@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show, :destroy]
 
   def index
-    @users = User.all.order(id: :desc)
+    @users = User.paginate(page: params[:page], per_page: 3).order(id: :desc)
+
   end
 
 

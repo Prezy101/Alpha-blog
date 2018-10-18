@@ -1,7 +1,9 @@
 <center><h1>Listing all users</h1>
 
 <% if @users.count > 0 %>
-
+      <center>
+        <%=	 will_paginate @users %>
+      </center>
     <% @users.each do |user| %>
 
         <div class="row">
@@ -56,4 +58,7 @@
       <P>You currently do not have any users created</P>
     </center>
 <% end %>
+  <center>
+    <%=	 will_paginate @users %>
+  </center>
 </center>

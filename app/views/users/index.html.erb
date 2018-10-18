@@ -1,6 +1,5 @@
 <center><h1>Listing all users</h1>
 
-<% if @users.count > 0 %>
       <center>
         <%=	 will_paginate @users %>
       </center>
@@ -52,12 +51,6 @@
     <% end %>
     <br/>
     <%= link_to 'Create new user', signup_url,:style =>'font-size:20px' %>
-<% else %>
-    <center>
-      <%= link_to 'Create new user', signup_url,:style =>'font-size:20px' %>
-      <P>You currently do not have any users created</P>
-    </center>
-<% end %>
   <center>
     <%=	 will_paginate @users %>
   </center>

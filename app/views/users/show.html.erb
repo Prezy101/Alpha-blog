@@ -9,7 +9,15 @@
   <h4><%= @users.username %>'s articles</h4>
   <h4><%= @users.email %></h4>
   <h4>Articles <%= @users.articles.count %></h4>
-
-
-  <%=	 render 'articles/articles', obj: @users.articles  %>
+  <br/>
+  <center>
+    <%=	 will_paginate @user_paginate %>
+  </center>
+</center>
+  <%=	 render 'articles/articles', obj: @user_paginate  %>
+</center>
+<br/>
+<center>
+  <%=	 will_paginate @user_paginate %>
+</center>
 </center>

@@ -2,6 +2,9 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:edit, :update, :destroy]
 
+  before_action :require_user, only: [:edit]
+
+
   def index
     @users = User.paginate(page: params[:page], per_page: 3).order(id: :desc)
 
@@ -9,6 +12,7 @@ class UsersController < ApplicationController
 
 
   def new
+    redirect_to articles_path if logged_in?
     @users = User.new
   end
 
@@ -23,7 +27,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    redirect_to users_path if current_user.id != @users.id
+    flash[:danger] = 'You can only edit or delete your own profile'
+
+
+
+  end
 
   def show
     @users = User.find(params[:id])

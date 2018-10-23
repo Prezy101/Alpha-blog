@@ -31,7 +31,12 @@ class UsersController < ApplicationController
     redirect_to users_path if current_user.id != @users.id
     flash[:danger] = 'You can only edit or delete your own profile'
 
-
+#That is the way to learn the most, that when you are doing something with such enjoyment that you don't notice that the time passes"
+#Never give up on what you really want to do. The person with big dreams is more powerful than one with all the facts
+#Genius is 1% talent and 99% hard work
+#The only limit to the pirsuit of dreams is our own imagination
+#Imagination is more important than knowledg, Knowledge is limited. Imagination encircles the world
+#https://www.facebook.com/442315095883525/videos/2198859080395381/
 
   end
 

@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
   def edit
 
     redirect_to articles_path if current_user != @article.user
-    flash[:danger] = 'You can only edit or delete your own articles'
+    #flash[:danger] = 'You can only edit or delete your own articles'
 
 
   end

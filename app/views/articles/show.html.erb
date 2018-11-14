@@ -11,7 +11,7 @@
 
   <hr style="width: 75%"/>
     <%= link_to 'Articles', articles_path, :class => 'text-success',:style =>'font-size:20px'%> <br/>
-  <%	 if logged_in? && current_user == @article.user %>
+  <%	 if logged_in? && (current_user == @article.user || current_user.admin?) %>
     <%= link_to 'Edit this article', edit_article_path(@article),:class => 'text-primary',:style =>'font-size:20px' %>  <br/>
     <%= link_to 'Delete this article', article_path(@article),:class => 'text-danger',:style =>'font-size:20px',method: :delete, data: {confirm: 'Are you sure?'} %><br/>
   <%	 end %>

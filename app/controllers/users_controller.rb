@@ -20,23 +20,15 @@ class UsersController < ApplicationController
   def create
     @users = User.new(user_params)
     if @users.save
+      session[:user_id] = @users.id
       flash[:success] = 'Welcome to the alpha blog'
-      redirect_to users_path
+      redirect_to user_path(@users)
     else
       render 'users/new' # or you can say render 'new'
     end
   end
 
   def edit
-    redirect_to users_path if current_user.id != @users.id
-    flash[:danger] = 'You can only edit or delete your own profile'
-
-#That is the way to learn the most, that when you are doing something with such enjoyment that you don't notice that the time passes"
-#Never give up on what you really want to do. The person with big dreams is more powerful than one with all the facts
-#Genius is 1% talent and 99% hard work
-#The only limit to the pirsuit of dreams is our own imagination
-#Imagination is more important than knowledg, Knowledge is limited. Imagination encircles the world
-#https://www.facebook.com/442315095883525/videos/2198859080395381/
 
   end
 
@@ -71,6 +63,15 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
+  end
+
+  def require_user
+
+    if current_user != @users && !current_user.admin?
+      flash[:danger] = 'You can only manage your own profile'
+      redirect_to root_path
+    end
+
   end
 
 

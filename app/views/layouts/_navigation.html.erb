@@ -30,8 +30,11 @@
         <li><%= link_to 'View all users', users_path %></li>
         <% if logged_in?  %>
             <li style="color: #BBBBBB; padding-top: 15px;"><%= current_user.email%></li>
+        <% if current_user.admin?  %>
+            <li style="color: #BBBBBB; padding-top: 15px;">(Admin)</li>
+        <% end %>
 
-            <li><%= link_to 'logout', logout_path, method: :delete  %> </li>
+              <li><%= link_to 'logout', logout_path, method: :delete  %> </li>
 
       <% else %>
             <li><%= link_to 'Sign up', signup_path %></li>

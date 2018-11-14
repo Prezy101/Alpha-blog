@@ -1,5 +1,7 @@
 <h1 align="center">Listing all articles</h1>
   <center>
+    <%= @article.count %>
+    <br/>
   <%=	 will_paginate @article %>
   </center>
 <%=	 render 'articles', obj: @article %>

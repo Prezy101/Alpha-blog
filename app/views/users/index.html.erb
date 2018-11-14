@@ -1,5 +1,5 @@
 <center><h1>Listing all users</h1>
-
+        <%= @users.count %>
       <center>
         <%=	 will_paginate @users %>
       </center>
@@ -30,7 +30,9 @@
 
               </div>
 
-              <% if logged_in? && current_user == user	  %>
+                  #Where brackets are removed from the below if statement, i get an error
+
+              <% if logged_in? && (current_user == user || current_user.admin?)  %>
 
                 <div class="article-actions">
 

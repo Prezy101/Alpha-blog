@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
   before_action :set_article, only: [:edit, :update, :show, :destroy]
 
-  before_action :require_same_user, only: [:edit, :update, :new]
+  before_action :require_same_user, only: [:edit, :update]
 
 
   def index
@@ -11,8 +11,14 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    redirect_to articles_path if current_user.nil?
-    @article = Article.new
+    if current_user.nil?
+      redirect_to articles_path
+      flash[:danger] = 'Please signup to create articles'
+
+    else
+      @article = Article.new
+
+    end
   end
 
   def edit

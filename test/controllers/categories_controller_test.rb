@@ -9,13 +9,13 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get categories index" do
 
-    get :categories_path
+    get '/categories'
     assert_response :success
   end
 
   test "should get new" do
 
-    get :new_categories_path
+    get '/categories/new'
     assert_response :success
 
 
@@ -23,7 +23,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get show" do
 
-    get :show_categories_path
+    get '/categories/show'
     assert_response :success
 
 

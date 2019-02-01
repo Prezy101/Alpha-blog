@@ -11,7 +11,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
     end
 
-    assert_template 'categories'
+    assert_template 'categories/index'
     assert_match "Prez", response.body
   end
 

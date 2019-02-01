@@ -1,1 +1,32 @@
-<h1>Categories</h1>
+<center>
+  <% if @categories.count > 0  %>
+      <h1>Categories</h1>
+
+      <% @categories.each do |category| %>
+
+          <div class="row">
+
+            <div class="col-xs-8 col-xs-offset-2">
+
+              <div class="well well-lg">
+
+                <div class="article-title">
+
+                  <%= link_to category.name, category_path(category) %>
+
+                </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+
+      <% else %>
+
+  <p>There are no categories that are created as of yet</p>
+
+
+  <% end %>
+</center>

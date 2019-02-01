@@ -1,0 +1,18 @@
+<H1 class="text-center">Create new category</H1>
+<center>
+  <%= render 'layouts/errors', obj:@categories %>
+  <div class="well">
+    <%= form_for @categories do  |f| %>
+        <p>
+          <%= f.label :name %><br/>
+          <%= f.text_field :name, :class =>'form-control', :style =>'width: 50%;', :autofocus=>'true', :placeholder=>'Enter Category Name' %>
+        </p>
+        <p>
+          <%= f.submit :class => 'btn btn-primary' %>
+        </p>
+    <% end %>
+
+    <br/>
+    <%= link_to 'Categories', categories_path %>
+  </div>
+</center>

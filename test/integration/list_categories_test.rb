@@ -13,8 +13,8 @@ class ListCategoriesTest < ActionDispatch::IntegrationTest
 
     get categories_path
     assert_template 'categories/index'
-    assert_select "a[href=?]", categories_path(@categories), text: @categories.name
-    assert_select "a[href=?]", categories_path(@categories2), text: @categories2.name
+    assert_select "a[href=?]", category_path(@categories), text: @categories.name
+    assert_select "a[href=?]", category_path(@categories2), text: @categories2.name
 
 
   end
@@ -22,3 +22,4 @@ class ListCategoriesTest < ActionDispatch::IntegrationTest
 
 
 end
+

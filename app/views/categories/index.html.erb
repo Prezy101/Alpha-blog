@@ -1,6 +1,7 @@
 <center>
   <% if @categories.count > 0  %>
       <h1>Categories</h1>
+      <%=	 will_paginate @categories %>
 
       <% @categories.each do |category| %>
 
@@ -21,7 +22,9 @@
           </div>
         </div>
 
-      <% end %>
+
+<% end %>
+      <%=	 will_paginate @categories %>
 
       <% else %>
 

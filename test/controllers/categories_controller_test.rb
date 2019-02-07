@@ -13,20 +13,5 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
 
-    get '/categories/new'
-    assert_response :success
-
-
-  end
-
-  test "should get show" do
-
-    get '/categories/show'
-    assert_response :success
-
-
-
-  end
 end

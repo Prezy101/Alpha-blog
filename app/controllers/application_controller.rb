@@ -23,4 +23,12 @@ def require_user
 
 end
 
+  #this is the fucntion that you created to check if a user in admin user and worked... good job Litchfield
+  def admin_user
+    if  !current_user.admin
+      flash[:danger] = 'Please note that only administrators can create categories'
+    end
+
+  end
+
 end

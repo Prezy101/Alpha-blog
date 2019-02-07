@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class CreateCategoriesTest < ActionDispatch::IntegrationTest
+
+  def setup
+    @user = User.create(username: "john", email: "john@example.com", password: "password", admin: true)
+
+  end
   #sign_in_as(@user, "password")
   test 'get new category form and category' do
     sign_in_as(@user, "password")

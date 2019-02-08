@@ -35,6 +35,8 @@ class CategoriesController < ApplicationController
 
   def show
 
+    @categories_articles = @categories.articles.paginate(page: params[:page], per_page: 1).order(id: :desc)
+
   end
 
   def edit

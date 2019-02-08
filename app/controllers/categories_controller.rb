@@ -1,4 +1,8 @@
 class CategoriesController < ApplicationController
+
+  before_action :set_category, only: [:edit, :update, :show, :destroy]
+
+
   before_action :require_admin, except: [:index, :show]
 
   def index
@@ -38,6 +42,10 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+  def set_category
+    @categories = Category.find(params[:id])
+  end
 
   def category_params
     params.require(:category).permit(:name)

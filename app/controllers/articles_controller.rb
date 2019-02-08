@@ -65,7 +65,8 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :description).merge(user: current_user)
+    #whitelisting
+    params.require(:article).permit(:title, :description, category_ids:[]).merge(user: current_user)
   end
 
   def require_same_user

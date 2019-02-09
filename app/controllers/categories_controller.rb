@@ -43,6 +43,21 @@ class CategoriesController < ApplicationController
 
   end
 
+  def update
+    if @categories.update(category_params)
+      flash[:success] = 'Category successfully created'
+      redirect_to category_path(@categories)
+    else
+    render 'edit'
+    end
+  end
+
+  def destroy
+    @categories.destroy
+    flash[:danger] = 'Category successfully deleted'
+    redirect_to categories_path
+  end
+
   private
 
   def set_category

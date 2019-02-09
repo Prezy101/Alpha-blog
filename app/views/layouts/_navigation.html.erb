@@ -14,12 +14,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'View all article', articles_path %></li>
-      <% if logged_in?  %>
+        <li><%= link_to 'View all articles', articles_path %></li>
+        <li><%= link_to 'View all categories', categories_path %></li>
+        <% if logged_in?  %>
         <li><%= link_to 'Create new article', new_article_url %></li>
       <% end %>
+        <% if logged_in? && (current_user.admin) %>
+            <li><%= link_to 'Create new category', new_category_url %></li>
+      <% end %>
 
-      </ul>
+            </ul>
       <!--<form class="navbar-form navbar-left">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
